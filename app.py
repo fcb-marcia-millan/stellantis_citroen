@@ -5,7 +5,7 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="Citroen - Base de Clientes",
-    page_icon="https://www.citroen.com.ar/content/dam/citroen/logos/logo_header.svg",
+    page_icon="https://logos-world.net/wp-content/uploads/2021/09/Citroen-Logo.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -135,8 +135,8 @@ except Exception as e:
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:16px 0 8px 0">
-      <img src="https://www.peugeot.com.ar/content/dam/peugeot/master/home/peugeot-logo-alt.png" width="80"><br>
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e8e8f5;text-transform:uppercase">Peugeot</span>
+      <img src="https://logos-world.net/wp-content/uploads/2021/09/Citroen-Logo.png" width="80"><br>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e8e8f5;text-transform:uppercase">Citroen</span>
     </div>
     """, unsafe_allow_html=True)
     st.markdown(f"<p style='text-align:center;font-size:12px;color:#666680;margin-top:2px'>{len(df_raw):,} registros</p>", unsafe_allow_html=True)
