@@ -135,8 +135,8 @@ except Exception as e:
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:16px 0 8px 0">
-      <img src="https://www.media.stellantis.com/uploads/br/brand/citroen_footer-6332adc17cb38_footer.png" width="80"><br>
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e8e8f5;text-transform:uppercase">Citroen</span>
+      <img src="https://www.media.stellantis.com/uploads/br/brand/citroen_footer-6332adc17cb38_footer.png" width="100"><br>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e8e8f5;text-transform:uppercase"></span>
     </div>
     """, unsafe_allow_html=True)
     st.markdown(f"<p style='text-align:center;font-size:12px;color:#666680;margin-top:2px'>{len(df_raw):,} registros</p>", unsafe_allow_html=True)
