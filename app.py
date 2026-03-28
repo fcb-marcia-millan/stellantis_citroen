@@ -5,7 +5,7 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="Citroen - Base de Clientes",
-    page_icon="https://logos-world.net/wp-content/uploads/2021/09/Citroen-Logo.png",
+    page_icon="https://www.media.stellantis.com/uploads/br/brand/citroenlogofile_3-6332aeb24371d.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -135,7 +135,7 @@ except Exception as e:
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:16px 0 8px 0">
-      <img src="https://logos-world.net/wp-content/uploads/2021/09/Citroen-Logo.png" width="80"><br>
+      <img src="https://stellantis3.dam-broadcast.com/medias/domain12808/media102340/702085-vs5317i5ot-whr.jpg" width="80"><br>
       <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e8e8f5;text-transform:uppercase">Citroen</span>
     </div>
     """, unsafe_allow_html=True)
@@ -196,7 +196,7 @@ if len(fecha_rango) == 2 and "vp_f_compra" in df.columns:
 st.markdown(f"""
 <div class="dash-header">
   <div>
-    <div class="dash-title">Stellantis: Peugeot</div>
+    <div class="dash-title">Stellantis: Citroen</div>
     <div class="dash-sub">Base de Clientes</div>
   </div>
   <div class="dash-badge">Vista: {pagina}</div>
