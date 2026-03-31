@@ -62,7 +62,7 @@ BASE = dict(
     font=dict(family="Barlow, sans-serif", color="#a0a0b8", size=11),
     xaxis=dict(gridcolor="#1e1e30", linecolor="#1e1e30", tickfont=dict(size=10)),
     yaxis=dict(gridcolor="#1e1e30", linecolor="#1e1e30", tickfont=dict(size=10)),
-    colorway=["#57718a","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a"],
+    colorway=["#57718a","#57718a","#00aadd","#73bf69","#fade2a","#ff780a"],
 )
 
 def layout(height=200, ml=12, mr=50, mt=8, mb=8, **extra):
@@ -220,7 +220,7 @@ NO_MB = {"displayModeBar": False}
 # Mapa de colores de género (global, usado en varias vistas)
 # Cubre variantes en inglés (Male/Female) y español (M/F/Masculino/Femenino)
 COLOR_MAP_GEN = {
-    "Male":      "#57718a",
+    "Male":      "#3b82a0",
     "Female":    "#e05c9e",
     "M":         "#57718a",
     "F":         "#e05c9e",
@@ -288,7 +288,7 @@ if pagina == "General":
                        .sort_values("n", ascending=True).tail(8))
             fig2 = go.Figure(go.Bar(
                 x=prov_df["n"], y=prov_df["cl_dir_provincia"], orientation="h",
-                marker_color="#5794f2", marker_line_width=0,
+                marker_color="#57718a", marker_line_width=0,
                 text=prov_df["n"], textposition="outside",
                 textfont=dict(size=10, color="#a0a0b8"),
             ))
@@ -330,7 +330,7 @@ elif pagina == "Por modelo":
     with col1:
         # Torta: distribución de compras por modelo
         mod_pie = df.groupby("am_modelocl").size().reset_index(name="n")
-        colors  = ["#57718a","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a","#e02f44","#555570"]
+        colors  = ["#57718a","#57718a","#00aadd","#73bf69","#fade2a","#ff780a","#e02f44","#555570"]
         label_colors = ["#555570" if l == SIN_DATO else colors[i % len(colors)]
                         for i, l in enumerate(mod_pie["am_modelocl"])]
         fig = go.Figure(go.Pie(
@@ -371,7 +371,7 @@ elif pagina == "Por modelo":
         if not trend.empty:
             fig3 = px.line(
                 trend, x="mes_compra", y="n", color="am_modelocl",
-                color_discrete_sequence=["#57718a","#5794f2","#00aadd","#73bf69",
+                color_discrete_sequence=["#57718a","#57718a","#00aadd","#73bf69",
                                          "#fade2a","#ff780a","#555570"],
             )
             fig3.update_traces(line_width=2)
@@ -419,7 +419,7 @@ elif pagina == "Por provincia":
                           .nunique().reset_index(name="n")
                           .sort_values("n", ascending=False).head(12)
                           .sort_values("n", ascending=True))
-                bar_colors2 = ["#555570" if l == SIN_DATO else "#5794f2" for l in loc_df["cl_dir_localidad"]]
+                bar_colors2 = ["#555570" if l == SIN_DATO else "#57718a" for l in loc_df["cl_dir_localidad"]]
                 fig2 = go.Figure(go.Bar(
                     x=loc_df["n"], y=loc_df["cl_dir_localidad"], orientation="h",
                     marker_color=bar_colors2, marker_line_width=0,
@@ -550,7 +550,7 @@ elif pagina == "Género":
         for g in generos_reales:
             n   = gender_counts.get(g, 0)
             pct = round(n / total_gen * 100, 1) if total_gen > 0 else 0
-            col = COLOR_MAP_GEN.get(g, "#5794f2")
+            col = COLOR_MAP_GEN.get(g, "#57718a")
             kpi_html += f"""
             <div class="kpi-card">
               <div class="kpi-label">{g}</div>
@@ -577,7 +577,7 @@ elif pagina == "Género":
             st.markdown('<p class="section-title">Distribución por género</p>', unsafe_allow_html=True)
             gen_df = df_gen["Gender"].value_counts().reset_index()
             gen_df.columns = ["Gender", "n"]
-            pie_colors = [COLOR_MAP_GEN.get(g, "#5794f2") for g in gen_df["Gender"]]
+            pie_colors = [COLOR_MAP_GEN.get(g, "#57718a") for g in gen_df["Gender"]]
             fig = go.Figure(go.Pie(
                 labels=gen_df["Gender"], values=gen_df["n"], hole=0.5,
                 marker=dict(colors=pie_colors),
