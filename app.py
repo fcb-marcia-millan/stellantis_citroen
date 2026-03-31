@@ -27,10 +27,10 @@ html, body, [class*="css"] { font-family: 'Barlow', sans-serif; }
     font-weight: 700; letter-spacing: 3px; color: #e8e8f5;
     text-transform: uppercase; margin: 0;
 }
-.dash-sub { font-size: 11px; color: #0088cc; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.dash-sub { font-size: 11px; color: #57718a; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 .dash-badge {
-    background: rgba(0,136,204,0.12); border: 1px solid #0088cc;
-    color: #0088cc; font-size: 10px; padding: 4px 12px;
+    background: rgba(0,136,204,0.12); border: 1px solid #57718a;
+    color: #57718a; font-size: 10px; padding: 4px 12px;
     border-radius: 3px; letter-spacing: 1px; text-transform: uppercase;
 }
 .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 4px; }
@@ -40,7 +40,7 @@ html, body, [class*="css"] { font-family: 'Barlow', sans-serif; }
 .kpi-value { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 600; color: #e8e8f5; line-height: 1; letter-spacing: -1px; }
 .kpi-sub { font-size: 10px; color: #444460; margin-top: 4px; }
 .kpi-bar { height: 2px; background: #1e1e30; border-radius: 1px; margin-top: 12px; }
-.kpi-bar-fill { height: 100%; background: #0088cc; border-radius: 1px; }
+.kpi-bar-fill { height: 100%; background: #57718a; border-radius: 1px; }
 .section-title {
     font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
     font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
@@ -62,7 +62,7 @@ BASE = dict(
     font=dict(family="Barlow, sans-serif", color="#a0a0b8", size=11),
     xaxis=dict(gridcolor="#1e1e30", linecolor="#1e1e30", tickfont=dict(size=10)),
     yaxis=dict(gridcolor="#1e1e30", linecolor="#1e1e30", tickfont=dict(size=10)),
-    colorway=["#0088cc","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a"],
+    colorway=["#57718a","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a"],
 )
 
 def layout(height=200, ml=12, mr=50, mt=8, mb=8, **extra):
@@ -220,11 +220,11 @@ NO_MB = {"displayModeBar": False}
 # Mapa de colores de género (global, usado en varias vistas)
 # Cubre variantes en inglés (Male/Female) y español (M/F/Masculino/Femenino)
 COLOR_MAP_GEN = {
-    "Male":      "#0088cc",
+    "Male":      "#57718a",
     "Female":    "#e05c9e",
-    "M":         "#0088cc",
+    "M":         "#57718a",
     "F":         "#e05c9e",
-    "Masculino": "#0088cc",
+    "Masculino": "#57718a",
     "Femenino":  "#e05c9e",
     SIN_DATO:    "#555570",
 }
@@ -273,7 +273,7 @@ if pagina == "General":
         anio_df["año_compra"] = anio_df["año_compra"].astype(int).astype(str)
         fig = go.Figure(go.Bar(
             x=anio_df["n"], y=anio_df["año_compra"], orientation="h",
-            marker_color="#0088cc", marker_line_width=0,
+            marker_color="#57718a", marker_line_width=0,
             text=anio_df["n"], textposition="outside",
             textfont=dict(size=10, color="#a0a0b8"),
         ))
@@ -300,7 +300,7 @@ if pagina == "General":
         time_df = df.groupby("mes_compra").size().reset_index(name="n").sort_values("mes_compra")
         fig3 = go.Figure(go.Bar(
             x=time_df["mes_compra"], y=time_df["n"],
-            marker_color="#0088cc", marker_line_width=0,
+            marker_color="#57718a", marker_line_width=0,
             hovertemplate="<b>%{x}</b><br>Compras: %{y}<extra></extra>",
         ))
         fig3.update_layout(**layout(160, mr=12))
@@ -330,7 +330,7 @@ elif pagina == "Por modelo":
     with col1:
         # Torta: distribución de compras por modelo
         mod_pie = df.groupby("am_modelocl").size().reset_index(name="n")
-        colors  = ["#0088cc","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a","#e02f44","#555570"]
+        colors  = ["#57718a","#5794f2","#00aadd","#73bf69","#fade2a","#ff780a","#e02f44","#555570"]
         label_colors = ["#555570" if l == SIN_DATO else colors[i % len(colors)]
                         for i, l in enumerate(mod_pie["am_modelocl"])]
         fig = go.Figure(go.Pie(
@@ -349,7 +349,7 @@ elif pagina == "Por modelo":
     with col2:
         mod_uni = (df.groupby("am_modelocl")["cl_k_cliente"]
                    .nunique().reset_index(name="n").sort_values("n", ascending=False))
-        bar_colors = ["#555570" if m == SIN_DATO else "#0088cc" for m in mod_uni["am_modelocl"]]
+        bar_colors = ["#555570" if m == SIN_DATO else "#57718a" for m in mod_uni["am_modelocl"]]
         fig2 = go.Figure(go.Bar(
             x=mod_uni["am_modelocl"].astype(str), y=mod_uni["n"],
             marker_color=bar_colors, marker_line_width=0,
@@ -371,7 +371,7 @@ elif pagina == "Por modelo":
         if not trend.empty:
             fig3 = px.line(
                 trend, x="mes_compra", y="n", color="am_modelocl",
-                color_discrete_sequence=["#0088cc","#5794f2","#00aadd","#73bf69",
+                color_discrete_sequence=["#57718a","#5794f2","#00aadd","#73bf69",
                                          "#fade2a","#ff780a","#555570"],
             )
             fig3.update_traces(line_width=2)
@@ -402,7 +402,7 @@ elif pagina == "Por provincia":
             prov_df = (df.groupby("cl_dir_provincia")
                        .agg(clientes=("cl_k_cliente","nunique"))
                        .reset_index().sort_values("clientes", ascending=True))
-            bar_colors = ["#555570" if p == SIN_DATO else "#0088cc" for p in prov_df["cl_dir_provincia"]]
+            bar_colors = ["#555570" if p == SIN_DATO else "#57718a" for p in prov_df["cl_dir_provincia"]]
             fig = go.Figure(go.Bar(
                 x=prov_df["clientes"], y=prov_df["cl_dir_provincia"], orientation="h",
                 marker_color=bar_colors, marker_line_width=0,
