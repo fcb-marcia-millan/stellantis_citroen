@@ -447,13 +447,13 @@ elif pagina == "Empresas":
       <div class="kpi-card">
         <div class="kpi-label">Clientes de empresa</div>
         <div class="kpi-value" style="color:#fade2a">{total_corp:,}</div>
-        <div class="kpi-sub">DNI's únicos (empresa=1)</div>
+        <div class="kpi-sub">Cuits únicos (empresa=1)</div>
         <div class="kpi-bar"><div class="kpi-bar-fill" style="width:100%;background:#fade2a"></div></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Registros corporativos</div>
+        <div class="kpi-label">Total de empresas</div>
         <div class="kpi-value" style="color:#fade2a">{compras_corp:,}</div>
-        <div class="kpi-sub">Registros con empresa=1 (filtrados)</div>
+        <div class="kpi-sub">Registros con empresa=1 </div>
         <div class="kpi-bar"><div class="kpi-bar-fill" style="width:{min(75, compras_corp/total_registros*100)};background:#fade2a"></div></div>
       </div>
       <div class="kpi-card">
